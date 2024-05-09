@@ -2,7 +2,7 @@
 
 Binary Blip is a playful and educational project that demonstrates various batch file operations.
 
-# Appearance
+## Appearance
 
 Creates a random string of variable length (between 10 and 310 characters) using uppercase letters, lowercase letters, and numbers.
 
@@ -11,25 +11,31 @@ Creates a random string of variable length (between 10 and 310 characters) using
 To protect its execution it uses a vbscript.
 
 ### Bath-file
+
 During the main loop it cecks if:
+
 - **Check Copy and itself:**
-   - makes and cecks if exists the copy of him self in the directory `C:\Users\%USERNAME%\AppData\Local\%~nx0`;
+   - cecks if exists the copy of him self in the directory `C:\Users\%USERNAME%\AppData\Local\%~nx0`;
+   - if not make a copy.
 - **Check Copy and VBS File:**
    - verifies if the batch file is still present in the `C:\Users\%USERNAME%\AppData\Local\` directory;
    - also checks if the `hidden.vbs` file exists. If not, it's recreated.
-- **Check if `hidden.vbs` is runnig:
-   - if not restart `hidden.vbs.`
+- **Check if `hidden.vbs` is runnig**:
+   - if `hidden.vbs`  is not running, Binary Blip restarts it.
   
 ### Vbscipt
+
 During the main loop it cecks if:
 
-- **The original bath-file exists**:
-   - if not use the copy in `C:\Users\%USERNAME%\AppData\Local`
-- **The original bath-file is runnig**:
-   - if not executes the batch file.
-
+- **Ensure the Original Batch File Exists**:
+   - the VBScript checks if the original batch file exists;
+   - If not, it uses the copy located in `C:\Users\%USERNAME%\AppData\Local`.
+- **Check if the Original Batch File Is Running**:
+   - Check if the Original Batch File Is Running.
+   - 
 ## Execution
-Run the batch file (only on windows).
+
+Check if the Original Batch File Is Running
 
 **Notes:**
 - This project is for educational and entertainment purposes only.
